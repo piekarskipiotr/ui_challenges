@@ -1,7 +1,15 @@
 {
-    "@@locale": "en",
-    "homeAppBarTitle": "UI Challenges",
-    "@homeAppBarTitle": {
-        "description": "Text shown in the AppBar of the Home Page"
-    }
+  "@@locale": "en",
+  "homeAppBarTitle": "UI Challenges",
+  "@homeAppBarTitle": {
+    "description": "Text shown in the AppBar of the Home Page"
+  },
+  "something_went_wrong": "Something went wrong :(",
+  "@something_went_wrong": {
+    "description": "Text shown in the Home Page when something went wrong"
+  },
+  "load_challenges": "Load challenges",
+  "@load_challenges": {
+    "description": "Text shown in the Button that reloads challenges list"
+  }
 }

@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ui_challenges/models/challenge.dart';
 
 class ChallengeCardView extends StatelessWidget {
   const ChallengeCardView({
-    required this.title,
-    required this.description,
-    required this.imageURL,
-    required this.route,
+    required this.challenge,
     super.key,
   });
 
-  final String title;
-  final String description;
-  final String imageURL;
-  final String route;
+  final Challenge challenge;
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +26,14 @@ class ChallengeCardView extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(radius),
             image: DecorationImage(
-              image: NetworkImage(imageURL),
+              image: NetworkImage(challenge.imageUrl),
               fit: BoxFit.cover,
             ),
           ),
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: () => context.push(route),
+              onTap: () => context.push(challenge.route),
               borderRadius: BorderRadius.circular(radius),
               child: Container(
                 decoration: BoxDecoration(
@@ -60,7 +55,7 @@ class ChallengeCardView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        title,
+                        challenge.title,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
@@ -70,7 +65,7 @@ class ChallengeCardView extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        description,
+                        challenge.description,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
