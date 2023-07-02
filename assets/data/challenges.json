@@ -1,2 +1,8 @@
 [
+  {
+    "title": "TikTok",
+    "description": "Main view of the app - Vertical scrolling, comments section etc.",
+    "image_url": "https://kiwilab.pl/wp-content/uploads/2022/04/tiktok.png",
+    "route": "/tiktok"
+  }
 ]
