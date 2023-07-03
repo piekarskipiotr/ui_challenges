@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ui_challenges/challenges/tiktok/tiktok.dart';
 import 'package:ui_challenges/home/home.dart';
 
 class AppRouter {
@@ -11,6 +12,10 @@ class AppRouter {
           create: (_) => HomeCubit(HomeInitial())..loadChallenges(),
           child: const HomePage(),
         ),
+      ),
+      GoRoute(
+        path: '/tiktok',
+        builder: (context, state) => const TikTokPage(),
       ),
     ],
   );
