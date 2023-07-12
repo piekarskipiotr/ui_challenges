@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_challenges/challenges/tiktok/view/tiktok_app_bar.dart';
+import 'package:ui_challenges/challenges/tiktok/view/tiktok_feed.dart';
 
 class TikTokPage extends StatefulWidget {
   const TikTokPage({super.key});
@@ -14,10 +15,12 @@ class _TikTokPageState extends State<TikTokPage> {
     return const DefaultTabController(
       length: 2,
       child: Scaffold(
+        extendBodyBehindAppBar: true,
+        backgroundColor: Colors.black,
         appBar: TikTokAppBar(),
         body: TabBarView(
           children: [
-            Center(child: Text('Following page')),
+            TikTokFeed(),
             Center(child: Text('For you page')),
           ],
         ),

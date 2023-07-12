@@ -18,10 +18,10 @@ class TikTokAppBar extends StatelessWidget implements PreferredSizeWidget {
           (Set<MaterialState> states) => Colors.transparent,
         ),
         dividerColor: Colors.transparent,
-        labelColor: Colors.black,
-        unselectedLabelColor: Colors.black.withOpacity(.5),
+        labelColor: Colors.white,
+        unselectedLabelColor: Colors.white.withOpacity(.7),
         labelStyle: const TextStyle(
-          fontSize: 16,
+          fontSize: 18,
           fontWeight: FontWeight.bold,
         ),
         tabs: const [
@@ -31,18 +31,27 @@ class TikTokAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       leading: IconButton(
         onPressed: () {},
-        icon: const Icon(Icons.live_tv_outlined, size: 30),
+        icon: const Icon(
+          Icons.live_tv_outlined,
+          size: 30,
+          color: Colors.white,
+        ),
         highlightColor: Colors.transparent,
       ),
       actions: [
         IconButton(
           onPressed: () {},
           // this icon looks smaller than the leading one
-          icon: const Icon(Icons.search_rounded, size: 32),
+          icon: const Icon(
+            Icons.search_rounded,
+            size: 32,
+            color: Colors.white,
+          ),
           highlightColor: Colors.transparent,
         ),
       ],
       elevation: 0,
+      backgroundColor: Colors.transparent,
     );
   }
 
