@@ -16,7 +16,7 @@ class _RectangleTabIndicatorPainter extends BoxPainter {
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final rect = offset & configuration.size!;
     final paint = Paint()
-      ..color = Colors.black
+      ..color = Colors.white
       ..style = PaintingStyle.fill;
 
     const indicatorHeight = 4.0;
