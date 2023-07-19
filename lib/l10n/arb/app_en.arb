@@ -11,5 +11,7 @@
   "load_challenges": "Load challenges",
   "@load_challenges": {
     "description": "Text shown in the Button that reloads challenges list"
-  }
+  },
+  "more": "More",
+  "less": "Less"
 }
