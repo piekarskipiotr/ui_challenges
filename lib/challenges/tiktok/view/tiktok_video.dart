@@ -50,15 +50,29 @@ class _TikTokVideoState extends State<TikTokVideo> {
   Widget build(BuildContext context) {
     return _controller.value.isInitialized
         ? GestureDetector(
-            onTap: () => _controller.value.isPlaying
-                ? _controller.pause()
-                : _controller.play(),
+            onTap: () {
+              _controller.value.isPlaying
+                  ? _controller.pause()
+                  : _controller.play();
+              setState(() {});
+            },
             child: Stack(
               children: [
                 Center(
                   child: AspectRatio(
                     aspectRatio: _controller.value.aspectRatio,
                     child: VideoPlayer(_controller),
+                  ),
+                ),
+                Center(
+                  child: AnimatedOpacity(
+                    opacity: _controller.value.isPlaying ? 0 : .6,
+                    duration: const Duration(milliseconds: 50),
+                    child: const Icon(
+                      Icons.play_arrow,
+                      color: Colors.white,
+                      size: 84,
+                    ),
                   ),
                 ),
                 SafeArea(
