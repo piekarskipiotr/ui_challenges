@@ -90,12 +90,7 @@ class _TikTokVideoState extends State<TikTokVideo> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             _TextInfo(tiktok: _tiktok),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [Container()],
-                              ),
-                            ),
+                            _ColumnInfo(tiktok: _tiktok),
                           ],
                         ),
                       ],
@@ -233,6 +228,297 @@ class _TextInfoState extends State<_TextInfo> {
           ],
         );
       },
+    );
+  }
+}
+
+class _ColumnInfo extends StatelessWidget {
+  const _ColumnInfo({required this.tiktok});
+
+  final TikTok tiktok;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          _AuthorIcon(tiktok: tiktok),
+          const SizedBox(height: 24),
+          _LikeIcon(tiktok: tiktok),
+          const SizedBox(height: 16),
+          _CommentsIcon(tiktok: tiktok),
+          const SizedBox(height: 16),
+          _SavesIcon(tiktok: tiktok),
+          const SizedBox(height: 16),
+          _SharesIcon(tiktok: tiktok),
+          const SizedBox(height: 16),
+          _MusicIcon(tiktok: tiktok),
+        ],
+      ),
+    );
+  }
+}
+
+class _AuthorIcon extends StatefulWidget {
+  const _AuthorIcon({required this.tiktok});
+
+  final TikTok tiktok;
+
+  @override
+  State<_AuthorIcon> createState() => _AuthorIconState();
+}
+
+class _AuthorIconState extends State<_AuthorIcon> {
+  late TikTok tiktok;
+
+  @override
+  void initState() {
+    super.initState();
+    tiktok = widget.tiktok;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        Container(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+          ),
+          padding: const EdgeInsets.all(1),
+          child: Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: NetworkImage(
+                  tiktok.authorAvatar,
+                ),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+        Transform.translate(
+          offset: const Offset(0, 8),
+          child: Container(
+            width: 20,
+            height: 20,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.pink,
+            ),
+            child: const Icon(
+              Icons.add_rounded,
+              color: Colors.white,
+              size: 16,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _LikeIcon extends StatefulWidget {
+  const _LikeIcon({required this.tiktok});
+
+  final TikTok tiktok;
+
+  @override
+  State<_LikeIcon> createState() => _LikeIconState();
+}
+
+class _LikeIconState extends State<_LikeIcon> {
+  late TikTok tiktok;
+
+  @override
+  void initState() {
+    super.initState();
+    tiktok = widget.tiktok;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: Column(
+        children: [
+          const Icon(
+            Icons.favorite,
+            color: Colors.white,
+            size: 32,
+          ),
+          Text(
+            '${tiktok.likes}',
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CommentsIcon extends StatefulWidget {
+  const _CommentsIcon({required this.tiktok});
+
+  final TikTok tiktok;
+
+  @override
+  State<_CommentsIcon> createState() => _CommentsIconState();
+}
+
+class _CommentsIconState extends State<_CommentsIcon> {
+  late TikTok tiktok;
+
+  @override
+  void initState() {
+    super.initState();
+    tiktok = widget.tiktok;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: Column(
+        children: [
+          const Icon(
+            Icons.comment,
+            color: Colors.white,
+            size: 32,
+          ),
+          Text(
+            '${tiktok.comments}',
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SavesIcon extends StatefulWidget {
+  const _SavesIcon({required this.tiktok});
+
+  final TikTok tiktok;
+
+  @override
+  State<_SavesIcon> createState() => _SavesIconState();
+}
+
+class _SavesIconState extends State<_SavesIcon> {
+  late TikTok tiktok;
+
+  @override
+  void initState() {
+    super.initState();
+    tiktok = widget.tiktok;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: Column(
+        children: [
+          const Icon(
+            Icons.bookmark,
+            color: Colors.white,
+            size: 32,
+          ),
+          Text(
+            '${tiktok.saves}',
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _SharesIcon extends StatefulWidget {
+  const _SharesIcon({required this.tiktok});
+
+  final TikTok tiktok;
+
+  @override
+  State<_SharesIcon> createState() => _SharesIconState();
+}
+
+class _SharesIconState extends State<_SharesIcon> {
+  late TikTok tiktok;
+
+  @override
+  void initState() {
+    super.initState();
+    tiktok = widget.tiktok;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: Column(
+        children: [
+          const Icon(
+            Icons.send,
+            color: Colors.white,
+            size: 32,
+          ),
+          Text(
+            '${tiktok.shares}',
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _MusicIcon extends StatelessWidget {
+  const _MusicIcon({required this.tiktok});
+
+  final TikTok tiktok;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 40,
+      height: 40,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        shape: BoxShape.circle,
+        image: DecorationImage(
+          image: NetworkImage(
+            'https://w7.pngwing.com/pngs/405/284/png-transparent-phonograph-record-lp-record-record-press-graphy-music-vinyl-miscellaneous-photography-sound-recording-and-reproduction.png',
+          ),
+        ),
+      ),
+      padding: const EdgeInsets.all(6),
+      child: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          image: DecorationImage(
+            image: NetworkImage(
+              tiktok.musicImage,
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
     );
   }
 }
